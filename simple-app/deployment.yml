@@ -3,6 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-deployment
+  annotations:
+    kubernetes.io/change-cause: rollout v1.1
 spec:
   replicas: 1
   selector:
@@ -15,6 +17,6 @@ spec:
     spec:
       containers:
       - name: webserver-simple
-        image: docker.io/kostiscodefresh/gitops-simple-app:v1.0
+        image: docker.io/kostiscodefresh/gitops-simple-app:v.1
         ports:
         - containerPort: 8080
